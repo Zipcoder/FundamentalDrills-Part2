@@ -11,7 +11,19 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+
+        Integer counterYZ = 0;
+        String[] words = input.split(" ");
+        for(Integer i = 0; i<words.length; i++){
+            if(words[words.length-1].endsWith("y")){
+                counterYZ++;
+            }
+            if(words[words.length-1].endsWith("z")){
+                counterYZ++;
+            }
+        }
+
+         return counterYZ;
     }
 
     /**
@@ -24,7 +36,16 @@ public class StringsAndThings {
      *           withoutString("Hello there", "x") // Should return "Hello there"
      */
     public String withoutString(String base, String remove){
-        return null;
+
+
+            String str= "";
+
+            if(base.contains(remove)){
+                str = base.replace(remove, "");
+                return str;
+
+            }
+        return base;
     }
 
     /**
@@ -36,7 +57,22 @@ public class StringsAndThings {
      *           equalIsNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean equalIsNot(String input){
-        return null;
+
+        Integer isCounter = 0;
+        Integer notCounter = 0;
+
+
+
+        if(input.contains("is"));{
+            isCounter++; }
+
+        if(input.contains("not")){
+            notCounter++; }
+
+        if(isCounter>=notCounter){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -47,6 +83,13 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
+
+        String holder = "";
+        String[] happyG = input.split(" ");
+        for(Integer i =0; i<happyG.length;i++){
+
+
+        }
         return null;
     }
 
