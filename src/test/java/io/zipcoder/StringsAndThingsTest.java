@@ -40,8 +40,8 @@ public class StringsAndThingsTest {
 
     @Test
     public void withoutStringTest1(){
-        String expected = "He there";
         String actual = stringsAndThings.withoutString("Hello there", "llo");
+        String expected = "He there";
         Assert.assertEquals(expected, actual);
     }
 
