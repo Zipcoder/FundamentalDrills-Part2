@@ -62,7 +62,7 @@ public class StringsAndThingsTest {
     @Test
     public void equalIsNotTest1(){
         Boolean actual = stringsAndThings.equalIsNot("This is not");
-        Assert.assertFalse(actual);
+        Assert.assertTrue(actual);
     }
 
     @Test
