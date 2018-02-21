@@ -11,7 +11,16 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        String[] newArray = input.trim().split(" ");
+        Integer counter =0;
+        for (String words :newArray){
+            if (words.charAt(words.length()-1)== 'y'|| words.charAt(words.length()-1)== 'z' ){
+                counter++;
+            }
+        }
+
+
+        return counter;
     }
 
     /**
@@ -24,7 +33,8 @@ public class StringsAndThings {
      *           withoutString("Hello there", "x") // Should return "Hello there"
      */
     public String withoutString(String base, String remove){
-        return null;
+        return base.replaceAll(remove, "");
+
     }
 
     /**
@@ -36,7 +46,13 @@ public class StringsAndThings {
      *           equalIsNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean equalIsNot(String input){
-        return null;
+        int isCounter = input.split("is" ,-1).length -1;
+        int notCounter = input.split("not", -1).length -1;
+        if (isCounter == notCounter){
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -47,7 +63,10 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        if (input.contains("gg")){
+            return true;
+        }
+        return false;
     }
 
 
@@ -59,6 +78,14 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int countTriples =0;
+        int chars = input.length() -2;
+        for (int i =0;i <chars;i++){
+            if (input.charAt(i) ==input.charAt(i +1) && input.charAt(i) ==input.charAt(i +2C)){
+                countTriples++;
+            }
+
+        }
+        return countTriples;
     }
 }
