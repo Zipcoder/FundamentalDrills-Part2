@@ -11,7 +11,14 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        int yZcount =0;
+        String[] splitWords = (input.toLowerCase().split(" "));
+        for (int i =0 ; i < splitWords.length; i++) {
+            if (splitWords[i].endsWith("y") || splitWords[i].endsWith("z")) {
+                yZcount ++;
+            }
+        }
+        return yZcount;
     }
 
     /**
@@ -24,7 +31,8 @@ public class StringsAndThings {
      *           withoutString("Hello there", "x") // Should return "Hello there"
      */
     public String withoutString(String base, String remove){
-        return null;
+        String stringWOut=  base.replaceAll(remove, "");
+        return stringWOut;
     }
 
     /**
@@ -36,7 +44,13 @@ public class StringsAndThings {
      *           equalIsNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean equalIsNot(String input){
-        return null;
+
+        String stringWithoutIs = input.replaceAll("is", "");
+        int countIs = (input.length() - stringWithoutIs.length()) /2 ;
+        String stringWithoutNot = input.replaceAll("not", "");
+        int countNot = (input.length() - stringWithoutNot.length()) /3 ;
+        if (countIs == countNot) return true;
+        else return false;
     }
 
     /**
@@ -47,7 +61,17 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        boolean happiness = false;
+        int singleGCount = 0;
+            for (int i = 1; i < input.length()-1; i++) {
+                if (input.charAt(i) == 'g') {
+                    if ((input.charAt(i - 1) != 'g' && (input.charAt(i+1)) != 'g')) {
+                        singleGCount++;
+                    }
+                }
+            }
+            if (singleGCount <= 0) happiness = true;
+            return happiness;
     }
 
 
@@ -59,6 +83,16 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+
+
+        int countTri = 0;
+        if (input.length() > 3) {
+            for (int i = 1; i < input.length()-1; i++) {
+                if (input.charAt(i - 1) == (input.charAt(i)) && (input.charAt(i)) == (input.charAt(i+1))) {
+                    countTri++;
+                }
+            }
+        } else return 0;
+        return countTri;
     }
 }
