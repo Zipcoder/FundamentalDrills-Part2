@@ -1,5 +1,7 @@
 package io.zipcoder;
 
+import java.util.ArrayList;
+
 public class StringsAndThings {
 
     /**
@@ -11,7 +13,17 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+
+        String [] inputArr = input.split(" ");
+        Integer count = 0;
+        String temp = "";
+        for (int i = 0; i < inputArr.length; i++){
+            temp = inputArr[i].substring(inputArr[i].length()-1);
+            if(temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("z")){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -23,8 +35,9 @@ public class StringsAndThings {
      *           withoutString("Hello there", "e") //  Should return "Hllo thr"
      *           withoutString("Hello there", "x") // Should return "Hello there"
      */
-    public String withoutString(String base, String remove){
-        return null;
+    public String withoutString(String base, String remove) {
+
+        return base.replaceAll(remove, "");
     }
 
     /**
@@ -35,9 +48,22 @@ public class StringsAndThings {
      *           equalIsNot("This is notnot") // Should return true
      *           equalIsNot("noisxxnotyynotxisi") // Should return true
      */
-    public Boolean equalIsNot(String input){
-        return null;
+    public Boolean equalIsNot(String input) {
+
+        return countIt(input, "is") == countIt(input, "not");
     }
+
+//CREATED A NEW METHOD
+    public int countIt(String str, String s){
+        int count=0;
+        while(str.contains(s)){
+            count++;
+            str=str.substring(str.indexOf(s) + s.length());
+        }
+        return count;
+    }
+
+
 
     /**
      * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
@@ -47,7 +73,12 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        for (int i = 0; i < input.length(); i++){
+            if (input.matches("gg")){
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -59,6 +90,13 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        char [] inputArr = input.toCharArray();
+        Integer count = 0;
+        for(int i = 1; i < input.length(); i++){
+            if (inputArr[i-1] ==(inputArr[i]) && inputArr[i] ==(inputArr[i+1])){
+                count++;
+            }
+        }
+        return count;
     }
 }
