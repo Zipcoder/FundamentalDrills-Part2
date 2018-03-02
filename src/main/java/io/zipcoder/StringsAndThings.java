@@ -1,5 +1,7 @@
 package io.zipcoder;
 
+import java.util.StringTokenizer;
+
 public class StringsAndThings {
 
     /**
@@ -7,12 +9,23 @@ public class StringsAndThings {
      * but not the 'y' in "yellow" (not case sensitive). We'll say that a y or z is at the end of a word if there is not an alphabetic
      * letter immediately following it. (Note: Character.isLetter(char) tests if a char is an alphabetic letter.)
      * example : countYZ("fez day"); // Should return 2
-     *           countYZ("day fez"); // Should return 2
-     *           countYZ("day fyyyz"); // Should return 2
+     * countYZ("day fez"); // Should return 2
+     * countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
-    }
+    public Integer countYZ(String input) {
+        String[] result = input.split(" ");
+        Integer counter = 0;
+        for (Integer i = 0; i < result.length; i++) {
+            if (result[i].endsWith("y") || result[i].endsWith("z")) {
+                counter++;
+            }
+            }
+
+            return counter;
+        }
+
+
+
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
@@ -24,19 +37,32 @@ public class StringsAndThings {
      *           withoutString("Hello there", "x") // Should return "Hello there"
      */
     public String withoutString(String base, String remove){
-        return null;
+//            String str = "";
+//
+//             if(base.contains(remove)){
+//                 str = base.replace(remove, "");
+//             }
+//        return str;
+
+        return base.replace(remove, "");
     }
 
     /**
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
      * to the number of appearances of "not" anywhere in the string (case sensitive)
      *
-     * example : equalIsNot("This is not")  // Should return false
-     *           equalIsNot("This is notnot") // Should return true
+     * example : equalIsNot("This is not")  // Should return true
+     *           equalIsNot("This is notnot") // Should return false
      *           equalIsNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean equalIsNot(String input){
-        return null;
+              int isCount = input.split("is", -1).length - 1;
+              int notCount = input.split("not", -1).length - 1;
+
+              if(isCount == notCount){
+                  return true;
+              }
+        return false;
     }
 
     /**
@@ -46,9 +72,11 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){
-        return null;
-    }
+//    public Boolean gIsHappy(String input){
+//
+//        if(input.contains("gg") )
+//        return true;
+//    }
 
 
     /**
@@ -59,6 +87,11 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        String input = input;
+        Integer countTriples = 0;
+        for(Integer i = 0; input.length; i++) {
+            if (input.CharAt(i) == i + 1 && i - 1);
+        }
+       return countTriples;
     }
 }
