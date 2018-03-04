@@ -10,8 +10,20 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
+    public Integer countYZ(String input) {
+        String[] temp = input.split(" ");
+        int count = 0;
+
+        for (int x = 0; x < temp.length; x++) {
+            if (temp[x].substring(temp[x].length() - 1).equals("y")) {
+                count++;
+            } else if (temp[x].substring(temp[x].length() - 1).equals("z")) {
+                count++;
+            }
+
+
+        }
+        return count;
     }
 
     /**
@@ -24,7 +36,8 @@ public class StringsAndThings {
      *           withoutString("Hello there", "x") // Should return "Hello there"
      */
     public String withoutString(String base, String remove){
-        return null;
+
+        return base.replaceAll(remove, "");
     }
 
     /**
@@ -36,9 +49,27 @@ public class StringsAndThings {
      *           equalIsNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean equalIsNot(String input){
-        return null;
+        int originalSize = input.length();
+        String newIs = input.replaceAll("is", "");
+        int removedIs = (originalSize - newIs.length()) / 2;
+        String newNot = input.replaceAll("not", "");
+        int removedNot = (originalSize - newNot.length()) / 3;
+
+        return (removedIs == removedNot);
     }
 
+//    return countIt(input, "is") == countIt(input, "not");
+//}
+//
+//    public int countIt(String str, String s){
+//        int count=0;
+//        while(str.contains(s)){
+//            count++;
+//            str=str.substring(str.indexOf(s) + s.length());
+//        }
+//        return count;
+//    }
+//
     /**
      * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
      * Return true if all the g's in the given string are happy.
@@ -46,8 +77,24 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){
-        return null;
+    public Boolean gIsHappy(String input) {
+
+
+        int countGG = 0;
+
+        for (int i = 0; i < input.length() -2; i++) {
+            if (input.charAt(0) == ('g') && (input.charAt(1) != 'g')) {
+                return false;
+            } else if (input.charAt(i + 1) == 'g' && (input.charAt(i) == 'g' || input.charAt(i + 2) == 'g')) {
+                countGG++;
+            } else if (input.charAt(i + 1) == 'g' && (input.charAt(i) != 'g' && input.charAt(i + 2) != 'g')) {
+                return false;
+            } else if (input.charAt(input.length() - 1) == 'g' && (input.charAt(input.length() - 2) != 'g')) {
+                return false;
+            }
+        }
+
+        return (countGG > 0);
     }
 
 
