@@ -4,6 +4,8 @@ package io.zipcoder;
 /**
  * @author tariq
  */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 public class StringsAndThings {
 
     /**
@@ -15,20 +17,12 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        int spaceInd = input.indexOf(' ');
-        if(spaceInd == 0)
-        {
-            spaceInd  = input.indexOf(' ');
-        }
         int counter = 0;
-        while(spaceInd != -1){
-            if(input.charAt(spaceInd - 1) == 'y' || input.charAt(spaceInd - 1) == 'z'){
+        for( String word : input.split("[^a-z&&[^A-Z]]")){
+            if(word.charAt(word.length()-1) == 'y' || word.charAt(word.length()-1) == 'z'){
                 counter++;
             }
-            spaceInd = input.indexOf(' ', spaceInd+1);
-        }
-        if(input.charAt(input.length() - 1) == 'y' || input.charAt(input.length() - 1) == 'z'){
-            counter++;
+
         }
         return counter;
     }
