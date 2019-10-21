@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import com.sun.deploy.util.StringUtils;
+
 /**
  * @author tariq
  */
@@ -14,9 +16,16 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
+    public Integer countYZ(String input) {
+        input = input + " ";
+        for (int i = 1; i < input.length(); i++) {
+            if (input.charAt(i) == ' ')
+                System.out.println(input.charAt(i - 1) + " ");
+
+        }
+        return ;
     }
+
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
