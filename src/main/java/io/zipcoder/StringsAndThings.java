@@ -16,16 +16,13 @@ public class StringsAndThings {
      */
     public Integer countYZ(String input){
         int result = 0;
-        input = input.toLowerCase();
+        input = input.toLowerCase() + " ";
 
         for(int i = 0; i < input.length() - 1; i++){
-            if ((input.charAt(i) == 'y' && input.charAt(i + 1) > 122 && input.charAt(i + 1) < 97) || (input.charAt(i) == 'z' && input.charAt(i + 1) > 122 && input.charAt(i + 1) < 97)) {
-                result+;
-            }
+            if ((input.charAt(i) == 'y' || input.charAt(i) == 'z') && !Character.isLetter(input.charAt(i+1))){
 
-        }
-        if(input.charAt(input.length() - 1) == 'y' || input.charAt(input.length() - 1) == 'z') {
-            result++;
+                result++;
+            }
         }
         return result;
     }
@@ -40,7 +37,7 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        return base.replace(remove,"");
     }
 
     /**
@@ -52,7 +49,16 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        input = input + " ";
+        String[] splitupis = input.split("is", input.length());
+        String[] splitupnot = input.split("not", input.length());
+
+        if (splitupis.length == splitupnot.length){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
@@ -63,7 +69,16 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        input = " " +  input + " ";
+
+        for(int i = 1; i < input.length() - 1; i++){
+
+            if(input.charAt(i) == 'g' && input.charAt(i + 1) != 'g' && input.charAt(i - 1) != 'g'){
+
+                return false;
+            }
+        }
+        return true;
     }
 
 
