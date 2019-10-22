@@ -99,6 +99,17 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+
+        String [] lettersPassed = input.split("");  // put each letter into an array
+        int counter = 0;
+
+        // loop through each letter in the array and see if the next two match; upper limit is less 2
+        for (int i = 0; i < lettersPassed.length - 2; i++){
+
+            if (lettersPassed[i].equals(lettersPassed[i+1]) && lettersPassed[i].equals(lettersPassed[i+2])){
+                counter ++;
+            }
+        }
+        return counter;
     }
 }
