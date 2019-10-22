@@ -38,7 +38,8 @@ public class StringsAndThings {
      */
     public String removeString(String base, String remove)
     {
-        String removedString = "";
+
+        String removedString = base.replace(remove, "");
 
         return removedString;
     }
