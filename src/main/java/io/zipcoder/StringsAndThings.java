@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import java.util.Arrays;
+
 /**
  * @author tariq
  */
@@ -14,10 +16,30 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
-    }
+    public Integer countYZ(String input) {
+        Integer answer = 0;
+        String[] words = input.split(" ");
+        for (String part : words){
+          Character  lastElement = part.charAt(part.length() -1);
+          if (lastElement == 'y' || lastElement == 'z'){
+            answer += 1;
+            }
 
+        }
+        return answer;
+
+}/*first attempt atcountYZ
+    public Integer countYZ(String input) {
+        Integer answer = 0;
+        String[] allWords = input.split(" ");
+        String[] firstWord = input.split(" ", 0);
+        String[] secondWord = input.split(" ", input.length() -1);
+        for (int i = 0; i < allWords.length -1;i++){
+            if (firstWord[firstWord.length -1].equals('y') || secondWord[secondWord.length -1].equals('z'));
+            answer += 1;
+        }
+        return answer;
+    }*/
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
      * been removed (not case sensitive). You may assume that the remove string is length 1 or more.
@@ -28,7 +50,9 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        String input = base;
+        String answer = input.replaceAll(remove, "");
+        return answer;
     }
 
     /**
