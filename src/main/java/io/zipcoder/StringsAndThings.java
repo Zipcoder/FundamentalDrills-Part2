@@ -51,21 +51,8 @@ public class StringsAndThings {
      * containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input) {
-        //Boolean isNotEqual;
-       /* int isCount = 0;
-        int notCount = 0;
-        if (input.contains("is"))
-            isCount += 1;
-        else if (input.contains("not"))
-            notCount += 1;
 
-        if ( isCount== notCount)
-            return true;
-        else
-            return false;
-        //return isNotEqual;
 
-        */
         int isCount = 0;
         int notCount = 0;
        // isCount = StringUtils.countMatches(input, "is");
@@ -112,12 +99,11 @@ public class StringsAndThings {
      */
     public Boolean gIsHappy(String input)
     {
-    Boolean gIsHappy = true;
+
     int gisNotHappy = 0;
 
     for ( int i=0; i< input.length() ; i++  )
     {
-        char c = input.charAt(i);
 
         if (input.charAt(i) == 'g' && input.charAt(i+1) == 'g' )
         {
@@ -144,9 +130,26 @@ public class StringsAndThings {
      *            countTriple("xxxabyyyycd") // Should return 3
      *            countTriple("a") // Should return 0
      */
-    public Integer countTriple(String input){
+    public Integer countTriple(String input)
+    {
 
-       // String[] inputArray[] = input.to
-        return 0;
+        int count = 0;
+        for ( int i=0; i< input.length() ; i++  )
+        {
+
+            char findChar = input.charAt(i);
+            if (i < input.length()- 2) //should not check for last 2 chars in the string
+            {
+                if (input.charAt(i + 1) == findChar && input.charAt(i + 2) == findChar)
+                {
+                    count += 1;
+
+                }
+            }
+
+        }
+
+
+        return count;
     }
 }
