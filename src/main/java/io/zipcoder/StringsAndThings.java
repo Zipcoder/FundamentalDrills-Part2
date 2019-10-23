@@ -96,23 +96,28 @@ public class StringsAndThings {
      * Return true if all the g's in the given string are happy.
      * example : gHappy("xxggxx") // Should return  true
      *           gHappy("xxgxx") // Should return  false
-     *           gHappy("xxggyygxx") // Should return  false
+     *           gHappy("xxggyygxx") // Should return  false  **** the test asserts true
      */
     public Boolean gIsHappy(String input){
-        boolean happyG = false;
+
         int count = 0;
         int inputLen = input.length();
 
         for (int i = 0; i < inputLen; i++){
 
-            if (input.charAt(i) == 'g'){
+            if (input.charAt(i) == 'g' && (input.indexOf(i) != input.indexOf(0) || input.indexOf(i) != input.lastIndexOf(input))){
                 if (input.charAt(i-1) == 'g' || input.charAt(i+1) == 'g'){
-                    happyG = true;
+                    // all g are happy
+                } else {
+
+                    // "xxggyygxxgg"
+                    count ++;
                 }
             }
         }
-        return happyG;
+        return (count == 0);
     }
+
 
 
     /**
