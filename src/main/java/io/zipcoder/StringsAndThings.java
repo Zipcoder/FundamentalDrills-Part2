@@ -14,16 +14,36 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        String[] inputArr = input.split(" ");
+    public Integer countYZ(String input) {
+        /*String[] inputArr = input.split(" ");
         for (String s : inputArr){
-        
 
+        -Make array of the words
+        -loop over the words
+            -test for last letter
+            if y or z
+            counter++
+            */
+
+        int count = 0;
+        Character y = 'y';
+        Character z = 'z';
+        for (int i = 0; i < input.length() - 2; i++) {
+            if (Character.isLetter(input.charAt(i + 1)) == false && (input.charAt(i) == y || input.charAt(i) == z)) {
+                count++;
+            }
         }
+                if (input.charAt(input.length()- 1) == y || input.charAt(input.length()- 1) == z) {
+                    count++;
+
+                }
+                return count;
 
 
-        return null;
     }
+
+
+
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
