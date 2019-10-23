@@ -42,9 +42,6 @@ public class StringsAndThings {
 
     }
 
-
-
-
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
      * been removed (not case sensitive). You may assume that the remove string is length 1 or more.
@@ -78,7 +75,19 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        char z = 'g';
+        char[] falafal = input.toCharArray();
+        boolean happy = false;
+        for(int x = 0; x < falafal.length; x++){
+            if(falafal[x] == z && falafal[x+1] == z){
+                happy = true;
+            }
+            else if(falafal[x] == z && falafal[x-1] != z) {
+                happy = false;
+            }
+
+        }
+        return happy;
     }
 
 
