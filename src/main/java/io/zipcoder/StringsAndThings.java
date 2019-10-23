@@ -83,7 +83,7 @@ public class StringsAndThings {
             if (input.charAt(i) == 'g') {
                 if (input.charAt(i-1) == 'g' || input.charAt(i+1) == 'g') {
                     happy = true;
-                }
+                } else {happy = false;}
             }
         }
         return happy;
