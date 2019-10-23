@@ -14,8 +14,20 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
+    public Integer countYZ(String input) {
+
+
+        String strArr[] = input.split(" ");
+        String yz = "";
+        Integer count = 0;
+        for(String strThing : strArr)   {
+           if(strThing.charAt(strThing.length() - 1) == 'y' ||  (strThing.charAt(strThing.length() - 1)) == 'z')    {
+               count++;
+           }
+
+        }
+
+        return count;
     }
 
     /**
@@ -28,7 +40,9 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+
+
+        return base.replaceAll(remove, "");
     }
 
     /**
@@ -40,7 +54,29 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+
+        String input1 = input.replace("is", "7");
+        String input2 = input.replace("not", "5");
+        Integer count1 = 0;
+        Integer count2 = 0;
+        for(int i = 0; i < input1.length(); i++) {
+            if (input1.charAt(i) == '7') {
+                count1++;
+                //System.out.println(count1);
+            }
+        }
+            for(int j = 0; j < input2.length(); j++) {
+                if (input2.charAt(j) == '5') {
+                    count2++;
+
+                }
+            }
+        System.out.println(count1);
+        System.out.println(count2);
+                return count1 == count2;
+
+
+
     }
 
     /**
@@ -51,6 +87,9 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
+
+
+
         return null;
     }
 
