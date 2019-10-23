@@ -14,9 +14,25 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
+
     public Integer countYZ(String input){
-        return null;
-    }
+
+        int ans = 0;
+        Character y = 'y';
+        Character z = 'z';
+
+        for (int i = 0; i < input.length() - 2; i++) {
+
+            if (Character.isLetter(input.charAt(i+1)) == false && (input.charAt(i) == y || input.charAt(i) == z)) {
+                ans++;
+            }
+            }
+
+            if (input.charAt(input.length()-1) == y || input.charAt(input.length()-1) == z ) {
+                ans++;
+            }
+        return ans;
+        }
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
@@ -27,8 +43,13 @@ public class StringsAndThings {
      *           removeString("Hello there", "e") //  Should return "Hllo thr"
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
+
     public String removeString(String base, String remove){
-        return null;
+
+        String[] middleMan = base.split(remove);
+        String ans = String.join("",middleMan);
+
+        return ans;
     }
 
     /**
@@ -39,6 +60,9 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
+
+
+
     public Boolean containsEqualNumberOfIsAndNot(String input){
         return null;
     }
