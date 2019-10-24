@@ -63,8 +63,28 @@ public class StringsAndThings {
 
 
 
-    public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+    public Boolean containsEqualNumberOfIsAndNot(String input) {
+
+        String replacedIS = input.replaceAll("is", "*");
+        String replacedNOT = input.replaceAll("not", "*");
+        int countIs = 0;
+        int countNot = 0;
+        Boolean ans;
+
+
+        for (int i = 0; i < replacedIS.length(); i++) {
+            if (replacedIS.charAt(i) == '*') {
+                countIs++;
+            }
+        }
+
+        for (int j = 0; j < replacedNOT.length(); j++) {
+            if(replacedNOT.charAt(j) == '*') {countNot++;}
+        }
+
+        ans = (countIs==countNot);
+
+        return ans;
     }
 
     /**
