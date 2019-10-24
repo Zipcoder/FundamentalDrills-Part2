@@ -63,9 +63,39 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
-    public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+    public Boolean containsEqualNumberOfIsAndNot(String input) {
+        String addX = "n" + input + "n";
+        String[] subOfIs = input.split("is");
+        String[] subOfNot = input.split("not");
+
+                return subOfIs.length -1 == subOfNot.length -1;
     }
+        /*String[] subOfIs = input.split("is");
+        String[] subOfNot = input.split("not");
+        Integer numOfIs = 0;
+        Integer numOfNot = 0;
+        boolean answer = false;
+        for (String i : subOfIs) {
+            if (i.contains("is")) {
+                numOfIs += 1;
+            }
+        }
+        for (String i : subOfNot) {
+            if (i.contains("not")) {
+                numOfNot += 1;
+            }
+        }
+
+        if (numOfIs.equals(numOfNot)) {
+             answer = true;
+        }else{
+
+            answer = false;
+        }
+
+        return answer;
+
+    }*/
 
     /**
      * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
@@ -75,7 +105,20 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        String holder = " " + input + " ";
+        for(int i = 1; i < holder.length() - 1; i++){
+            char firstG = holder.charAt(i);
+            char secondG = holder.charAt(i - 1);
+            char thirdG = holder.charAt(i + 1);
+
+            if (firstG == 'g' && firstG != secondG && firstG != thirdG){
+            return false;
+            }
+        }
+
+        return true;
+
+
     }
 
 
@@ -87,6 +130,19 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        String holder = " " + input;
+        Integer answer = 0;
+        for(int i = 1; i < holder.length() - 2; i++){
+            char firstG = holder.charAt(i);
+            char secondG = holder.charAt(i + 1);
+            char thirdG = holder.charAt(i + 2);
+
+            if (firstG == secondG && firstG == thirdG){
+                answer += 1;
+            }
+        }
+
+        return answer;
+
     }
 }
