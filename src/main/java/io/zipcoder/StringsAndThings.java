@@ -96,7 +96,12 @@ public class StringsAndThings {
      */
 
     public Boolean gIsHappy(String input){
-        return null;
+        Boolean ans = false;
+        String[] middleMan = input.split("gg");
+        String test = String.join("",middleMan);
+        if (input.length() != test.length()){ans = true;}
+        if (ans && test.indexOf('g') != -1){ans =false;}
+        return ans;
     }
 
 
