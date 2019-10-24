@@ -57,6 +57,8 @@ public class StringsAndThings {
      * containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input) {
+       input = " " + input + " ";
+
         return input.split("is").length == input.split("not").length;
     }
 
@@ -68,7 +70,7 @@ public class StringsAndThings {
      * gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input) {
-        input = input + " ";
+        input =  " " + input + " ";
         for(int i = 0; i < input.length(); i++){
 
             if(input.charAt(i) == 'g'){
