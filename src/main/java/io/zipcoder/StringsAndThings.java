@@ -45,11 +45,12 @@ public class StringsAndThings {
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
      * to the number of appearances of "not" anywhere in the string (case sensitive)
      * <p>
-     * example : containsEqualNumberOfIsAndNot("This is not")  // Should return false
-     * containsEqualNumberOfIsAndNot("This is notnot") // Should return true
+     * example : containsEqualNumberOfIsAndNot("This is not")  // Should return true
+     * containsEqualNumberOfIsAndNot("This is notnot") // Should return false
      * containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input) {
+        // int numberOfIfs = getNumberOfOccurences(input, )
         return null;
     }
 
@@ -61,6 +62,7 @@ public class StringsAndThings {
      * gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input) {
+        // if (input)
         return null;
     }
 
@@ -73,6 +75,17 @@ public class StringsAndThings {
      * countTriple("a") // Should return 0
      */
     public Integer countTriple(String input) {
-        return null;
+        int result = 0;
+        int in = 0;
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (input.charAt(i) == input.charAt(i + 1)) && (input.charAt(i) == input.charAt(i+2))
+                in++;
+            else
+                in = 0;
+            if (in == 2)
+                result++;
+        }
+
+        return result;
     }
 }
