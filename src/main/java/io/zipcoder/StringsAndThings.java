@@ -50,8 +50,25 @@ public class StringsAndThings {
      * containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input) {
-        // int numberOfIfs = getNumberOfOccurences(input, )
-        return null;
+        int countIs = 0;
+        int countNot = 0;
+        char[] charArray = input.toCharArray();
+
+        char i = 'i';
+        char s = 's';
+        char n = 'n';
+        char o = 'o';
+        char t = 't';
+
+        for (int count = 0; count < charArray.length - 1; count++) {
+            if (charArray[count] == i && charArray[count + 1] == s) {
+                countIs++;
+            }
+            if (charArray[count] == n && charArray[count +1] == o && charArray[count +2] == t) {
+                countNot++;
+            }
+        }
+        return countIs == countNot;
     }
 
     /**
@@ -62,9 +79,20 @@ public class StringsAndThings {
      * gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input) {
-        // if (input)
-        return null;
+        char z = 'g';
+        char[]  happyG = input.toCharArray();
+        boolean happy = false;
+        for (int i = 0; i < happyG.length; i++){
+            if (happyG[i] == z && happyG[i + 1] == z){
+                happy = true;
+            }
+            else if (happyG[i] == z && happyG[i - 1] != z){
+                happy = false;
+            }
+        }
+        return happy;
     }
+
 
 
     /**
@@ -75,17 +103,13 @@ public class StringsAndThings {
      * countTriple("a") // Should return 0
      */
     public Integer countTriple(String input) {
-        int result = 0;
-        int in = 0;
-        for (int i = 0; i < input.length() - 1; i++) {
-            if (input.charAt(i) == input.charAt(i + 1)) && (input.charAt(i) == input.charAt(i+2))
-                in++;
-            else
-                in = 0;
-            if (in == 2)
-                result++;
+        char[] tri = input.toCharArray();
+        int count = 0;
+        for (int i = 0; i < tri.length - 1; i++){
+            if(tri[i + 1] == tri[i] && tri[i + 2] == tri[i]){
+                count++;
+            }
         }
-
-        return result;
+        return count;
     }
 }
