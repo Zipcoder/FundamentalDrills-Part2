@@ -2,6 +2,7 @@ package io.zipcoder;
 
 
 import com.sun.deploy.util.StringUtils;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,6 +20,7 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
+    // WORKING
     public Integer countYZ(String input){
         Matcher m = Pattern.compile("[yz]\\b").matcher(input);
         int counter = 0;
@@ -35,6 +37,7 @@ public class StringsAndThings {
      *           removeString("Hello there", "e") //  Should return "Hllo thr"
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
+    //WORKING
         public String removeString(String base, String remove){
             String replace = base.replace(remove, "");
             return replace;
@@ -48,8 +51,25 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
+    // WORKING
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        Matcher isMatch = Pattern.compile("is").matcher(input);
+        Matcher notMatch = Pattern.compile("not").matcher(input);
+        Boolean equalOrNot;
+        int counter = 0;
+        while (isMatch.find())
+           counter++;
+        int isCount = counter;
+        counter = 0;
+        while (notMatch.find())
+            counter++;
+        int notCount = counter;
+        if (isCount == notCount) {
+            equalOrNot = true;
+        } else {
+            equalOrNot = false;
+        }
+        return equalOrNot;
     }
 
     /**
