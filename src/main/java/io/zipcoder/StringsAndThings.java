@@ -79,6 +79,7 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
+    // WORKING
     public Boolean gIsHappy(String input){
         Boolean happyG = false;
         Matcher gDawg = Pattern.compile("gg").matcher(input);
@@ -96,7 +97,15 @@ public class StringsAndThings {
      *            countTriple("xxxabyyyycd") // Should return 3
      *            countTriple("a") // Should return 0
      */
+    // WORKING
     public Integer countTriple(String input){
-        return null;
+        int counter = 0;
+        int strLength = input.length();
+        for (int i = 0; i < strLength - 2; i++) {
+            char tempChar = input.charAt(i);
+            if (tempChar == input.charAt(i + 1) && tempChar == input.charAt(i + 2))
+                counter++;
+        }
+        return counter;
     }
 }
