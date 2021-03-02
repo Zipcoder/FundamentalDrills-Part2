@@ -16,7 +16,6 @@ public class StringsAndThings {
      */
     public Integer countYZ(String input){
         int output = 0;
-
         for (int i = 0; i < input.length(); i++){
             if (input.charAt(i) == ' '){
                 if((input.charAt(i - 1)== 'z') || (input.charAt(i - 1)== 'y')) {
@@ -40,7 +39,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        String newString = base.replaceAll(remove,"");
+        return newString;
     }
 
     /**
