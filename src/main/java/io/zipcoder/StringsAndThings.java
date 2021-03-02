@@ -15,7 +15,9 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        int counter = 0;
+
+        return counter;
     }
 
     /**
@@ -28,7 +30,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        final String replace = base.replace(remove, "");
+        return replace;
     }
 
     /**
