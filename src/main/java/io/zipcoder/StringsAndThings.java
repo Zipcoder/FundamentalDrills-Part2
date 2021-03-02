@@ -80,6 +80,12 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int counter = 0;
+        //String serLetters [] = input.split("");
+        for(int i = 0; i < input.length(); i++) {
+            if ((i < input.length()-2) && (input.charAt(i) == input.charAt(i+2))) {
+                counter++;
+            }
+        }  return counter;
     }
 }
