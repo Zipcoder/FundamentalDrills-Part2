@@ -80,7 +80,12 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        Boolean happyG = false;
+        Matcher gDawg = Pattern.compile("gg").matcher(input);
+        if (gDawg.find()) {
+            happyG = true;
+        }
+        return happyG;
     }
 
 
