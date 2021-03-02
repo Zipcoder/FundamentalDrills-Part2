@@ -3,6 +3,9 @@ package io.zipcoder;
 
 import com.sun.deploy.util.StringUtils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author tariq
  */
@@ -17,11 +20,12 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
+        Matcher m = Pattern.compile("[yz]\\b").matcher(input);
         int counter = 0;
-
+        while (m.find())
+            counter++;
         return counter;
     }
-
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
      * been removed (not case sensitive). You may assume that the remove string is length 1 or more.
@@ -31,12 +35,12 @@ public class StringsAndThings {
      *           removeString("Hello there", "e") //  Should return "Hllo thr"
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
-    public String removeString(String base, String remove){
-        final String replace = base.replace(remove, "");
-        return replace;
-    }
+        public String removeString(String base, String remove){
+            String replace = base.replace(remove, "");
+            return replace;
+        }
 
-    /**
+    /*
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
      * to the number of appearances of "not" anywhere in the string (case sensitive)
      *
