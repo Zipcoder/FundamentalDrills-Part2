@@ -98,7 +98,12 @@ public class StringsAndThings<counter> {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        for (int i = 0; i < input.length(); i++){
+            if (i == i) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -110,6 +115,13 @@ public class StringsAndThings<counter> {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        Integer counter = 0;
+        for (int i = 0; i < input.length() - 2; i++){
+            char tmp = input.charAt(i);
+            if (tmp == input.charAt(i+1) && tmp == input.charAt(i+2)){
+                counter++;
+            }
+        }
+        return counter;
     }
 }
