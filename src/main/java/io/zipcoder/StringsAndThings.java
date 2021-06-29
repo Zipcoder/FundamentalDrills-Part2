@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import java.util.Locale;
+
 /**
  * @author tariq
  */
@@ -15,7 +17,12 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        int result=0;
+        //char lastLetter = input.charAt(input.length());
+        if(input.endsWith("y") || input.endsWith("z")){
+            result+=1;
+        }
+        return result;
     }
 
     /**
@@ -28,7 +35,9 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        String result="";
+        result = base.replace(remove,"");
+        return result;
     }
 
     /**
