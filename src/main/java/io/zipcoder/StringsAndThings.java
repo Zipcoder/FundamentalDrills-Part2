@@ -18,9 +18,13 @@ public class StringsAndThings {
      */
     public Integer countYZ(String input){
         int result=0;
-        //char lastLetter = input.charAt(input.length());
-        if(input.endsWith("y") || input.endsWith("z")){
-            result+=1;
+        String words[]=input.split(" ");
+        for (String word:words
+             ) {
+            if(word.endsWith("y") || word.endsWith("z")){
+                result+=1;
+        }
+
         }
         return result;
     }
@@ -49,7 +53,15 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        Boolean result =false;
+        String letter[] = input.split("");
+
+
+
+        //}
+
+
+        return result;
     }
 
     /**
