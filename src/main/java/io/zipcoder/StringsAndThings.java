@@ -87,7 +87,6 @@ public class StringsAndThings {
      */
     public Boolean gIsHappy(String input){
 
-        //if i >= 1, is g in (i+1) or (i-1)
 
         boolean indexIsG = false;
         for(int i = 0; i < input.length(); i++) {
@@ -107,7 +106,7 @@ public class StringsAndThings {
     }
 
 
-    /**
+     /**
      * We'll say that a "triple" in a string is a char appearing three times in a row.
      * Return the number of triples in the given string. The triples may overlap.
      * example :  countTriple("abcXXXabc") // Should return 1
@@ -115,6 +114,19 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple (String input){
-        return null;
+        int numberOfTriples = 0;
+        //loop through string
+        //find if charAt(i) == charAt(i+1) and (i+2)
+        //increase counter by 1
+
+        for(int i = 0; i < input.length() - 3; i++){
+            if(input.charAt(i) == input.charAt(i+1)){
+                if(input.charAt(i+1) == input.charAt(i+2)){
+                    numberOfTriples++;
+                }
+            }
+        }
+
+        return numberOfTriples;
     }
 }
