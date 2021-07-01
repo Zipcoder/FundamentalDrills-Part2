@@ -87,9 +87,21 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){
-        return null;
-    }
+    public Boolean gIsHappy(String input) {
+        Boolean result = false;
+        String[] letter = input.split("");
+        for (int i = 0; i < letter.length - 1; i++) {
+            if (letter[i].equals("g") && letter[i + 1].equals("g")) {
+                result = true;
+            }
+            if (i > 0) {
+                if (letter[i].equals("g") && letter[i - 1].equals("g")) {
+                    result = true;
+                }
+            }
+            }
+            return result;
+        }
 
 
     /**
@@ -100,6 +112,13 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int result=0;
+        String[] letter = input.split("");
+        for(int i=0;i<letter.length-1;i++){
+            if(letter[i].equals(letter[i+1]) && letter[i+1].equals(letter[i+2])){
+                result++;
+            }
+        }
+        return result;
     }
 }
