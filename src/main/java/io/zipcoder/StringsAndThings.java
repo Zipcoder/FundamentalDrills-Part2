@@ -5,7 +5,6 @@ package io.zipcoder;
  * @author tariq
  */
 public class StringsAndThings {
-
     /**
      * Given a string, count the number of words ending in 'y' or 'z' -- so the 'y' in "heavy" and the 'z' in "fez" count,
      * but not the 'y' in "yellow" (not case sensitive). We'll say that a y or z is at the end of a word if there is not an alphabetic
@@ -15,8 +14,19 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        int count = 0;
+        String[] arrayOfWords = input.split(" ");
+        for(String word : arrayOfWords) {
+            int numberOfCharInWord = word.length();
+            int lastIndex = numberOfCharInWord - 1;
+            char lastChar = word.charAt(lastIndex);
+            if(lastChar == 'y' || lastChar == 'z'){
+                count++;
+            }
+        }
+        return count;
     }
+
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
@@ -28,7 +38,11 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        String deleteString = "";
+        if(base.contains(remove)){
+            deleteString = base.replace(remove, "");
+        } else deleteString = base;
+        return deleteString;
     }
 
     /**
@@ -40,7 +54,32 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        //search for occurrences of "is" and "not" in string
+        //remove the string of letters so it does not repeat
+        //tally the number of occurrences for each
+        String deleteStringIs = input.replace("is", "");
+        String deleteStringNot = input.replace("not", "");
+        int numberOfIs = 0;
+        int numberOfNot = 0;
+        boolean isVsNotComparison = false;
+        if(input.contains("is") && input.contains("not")) {
+            input = deleteStringIs;
+            numberOfIs++;
+            input = deleteStringNot;
+            numberOfNot++;
+        }else if(input.contains("is") && !input.contains("not")){
+            input = deleteStringIs;
+            numberOfIs++;
+        }else if(!input.contains("is") && input.contains("not")){
+            input = deleteStringNot;
+            numberOfNot++;
+        }
+        //compare the number of occurrences
+        if(numberOfIs == numberOfNot){
+            isVsNotComparison = true;
+        }else isVsNotComparison = false;
+
+        return isVsNotComparison;
     }
 
     /**
