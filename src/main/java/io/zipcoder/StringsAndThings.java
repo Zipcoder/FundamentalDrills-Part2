@@ -57,29 +57,25 @@ public class StringsAndThings {
         //search for occurrences of "is" and "not" in string
         //remove the string of letters so it does not repeat
         //tally the number of occurrences for each
-        String deleteStringIs = input.replace("is", "");
-        String deleteStringNot = input.replace("not", "");
+
         int numberOfIs = 0;
         int numberOfNot = 0;
-        boolean isVsNotComparison = false;
-        if(input.contains("is") && input.contains("not")) {
-            input = deleteStringIs;
-            numberOfIs++;
-            input = deleteStringNot;
-            numberOfNot++;
-        }else if(input.contains("is") && !input.contains("not")){
-            input = deleteStringIs;
-            numberOfIs++;
-        }else if(!input.contains("is") && input.contains("not")){
-            input = deleteStringNot;
+        String currentString = input;
+        int indexOf = currentString.indexOf("not");
+
+        while(indexOf >= 0){
+            currentString = currentString.replaceFirst("not", "");
+            indexOf = currentString.indexOf("not");
             numberOfNot++;
         }
-        //compare the number of occurrences
-        if(numberOfIs == numberOfNot){
-            isVsNotComparison = true;
-        }else isVsNotComparison = false;
 
-        return isVsNotComparison;
+        indexOf = currentString.indexOf("is");
+        while(indexOf >= 0){
+            currentString = currentString.replaceFirst("is", "");
+            indexOf = currentString.indexOf("is");
+            numberOfIs++;
+        }
+        return numberOfIs == numberOfNot;
     }
 
     /**
@@ -90,7 +86,24 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+
+        //if i >= 1, is g in (i+1) or (i-1)
+
+        boolean indexIsG = false;
+        for(int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'g') {
+                if (input.charAt(i + 1) == 'g' || input.charAt(i -1) == 'g') {
+                    indexIsG = true;
+                } else if (input.charAt(i+1) != 'g'){
+                    indexIsG = false;
+                    break;
+                } else if (input.charAt(i - 1) != 'g'){
+                    indexIsG = false;
+                    break;
+                }
+            }
+        }
+        return indexIsG;
     }
 
 
@@ -101,7 +114,7 @@ public class StringsAndThings {
      *            countTriple("xxxabyyyycd") // Should return 3
      *            countTriple("a") // Should return 0
      */
-    public Integer countTriple(String input){
+    public Integer countTriple (String input){
         return null;
     }
 }
