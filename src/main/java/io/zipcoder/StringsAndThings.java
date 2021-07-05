@@ -82,12 +82,15 @@ public class StringsAndThings {
     public Boolean gIsHappy(String input){
         boolean gIsHappy = false;
         char[] inputToCharArray = input.toCharArray();
-        for (int i = 0; i < inputToCharArray.length; i++) {
+        for (int i = 1; i < inputToCharArray.length - 1; i++) {
              if (inputToCharArray[i] == 'g' && (inputToCharArray[i - 1] == 'g' || inputToCharArray[i + 1] == 'g')) {
                  gIsHappy = true;
              }
              else if (inputToCharArray[i] == 'g' && (inputToCharArray[i - 1] != 'g' || inputToCharArray[i + 1] != 'g')) {
                  gIsHappy = false;
+             }
+             else if (inputToCharArray[0] == 'g' && inputToCharArray[1] == 'g') {
+                 gIsHappy = true;
              }
         }
         return gIsHappy;
