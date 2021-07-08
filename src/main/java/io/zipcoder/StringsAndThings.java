@@ -22,7 +22,7 @@ public class StringsAndThings {
         int yZTotal = 0;
 
         String[] inputSplit = input.split(" ");
-        int length = inputSplit.length;
+        //int length = inputSplit.length;
         for (String s : inputSplit) {
             if (s.endsWith("y") || s.endsWith("z")) {
                 yZTotal++;
@@ -79,7 +79,7 @@ public class StringsAndThings {
         Integer numOfIs = 0;
         Integer numOfNot = 0;
 
-        for (int i = 0; i <= input.length()-3; i++) {
+        for (int i = 0; i < input.length()-3; i++) {
 
             if (input.substring(i,i+2).equalsIgnoreCase("is")){
                 numOfIs++ ;
@@ -99,13 +99,18 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == 'g' && input.charAt(i + 1) == 'g') {
-                return true;
+        boolean happyG = false;
+        for (int i = 1; i < input.length()-1; i++) {
+            if (input.charAt(i) == 'g')
+                if (input.charAt(i - 1) == 'g' ||  input.charAt(i+1) =='g') {
+                happyG = true;
+                } else if (input.charAt(i - 1) != 'g'|| input.charAt(i+1) != 'g') {
+                return false;
             }
-        }
 
-        return false;
+        }
+        return happyG;
+
     }
 
 
